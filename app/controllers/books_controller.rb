@@ -10,7 +10,7 @@ class BooksController < ApplicationController
 
   def index
     @book = Book.new
-    @books = Book.all
+    @books = Book.most_favorite.order("favorites_count DESC").select("books.*")
     @newbook = Book.new
   end
 
