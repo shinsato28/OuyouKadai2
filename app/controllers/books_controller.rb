@@ -13,8 +13,14 @@ class BooksController < ApplicationController
   end
 
   def index
+    if params[:latest]
+      @books = Book.latest
+    elsif params[:rate_count]
+      @books = Book.rate_count
+    else
+      @books = Book.most_favorite.order("favorites_count DESC").select("books.*")
+    end
     @book = Book.new
-    @books = Book.most_favorite.order("favorites_count DESC").select("books.*")
     @newbook = Book.new
   end
 
