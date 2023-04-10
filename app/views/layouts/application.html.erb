@@ -17,7 +17,8 @@
       <main>
         <p id="notice"><%= notice %></p>
         <div class="d-flex justify-content-center mb-2">
-          <%= render 'searches/form' %>
+          <div class="mr-3"><%= render 'searches/form' %></div>
+          <%= render "searches/tag_form" %>
         </div>
         <%= yield %>
       </main>
